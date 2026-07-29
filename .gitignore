@@ -1,0 +1,5 @@
+node_modules/
+scripts/
+*.html
+package.json
+package-lock.json
