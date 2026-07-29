@@ -1,301 +1,44 @@
-/* ================================
-   Core Keyframe Animations
-================================ */
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-}
-
-@keyframes scroll {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(8px); }
-}
-
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(8, 145, 178, 0.4); }
-    50% { box-shadow: 0 0 0 15px rgba(8, 145, 178, 0); }
-}
-
-@keyframes blink {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--primary-light); }
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* ================================
-   Fade Animations
-================================ */
-
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
+.hero-greeting {
+    animation: fadeInUp 0.6s ease both;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+.hero-name {
+    animation: fadeInUp 0.6s ease 0.15s both;
 }
 
-@keyframes scaleUp {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+.hero-title {
+    animation: fadeInUp 0.6s ease 0.3s both;
 }
 
-@keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.5); }
-    to { opacity: 1; transform: scale(1); }
+.hero-description {
+    animation: fadeInUp 0.6s ease 0.45s both;
 }
 
-/* ================================
-   Hero Animations
-================================ */
-
-@keyframes gridShift {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(15px, 10px); }
-    50% { transform: translate(-10px, 15px); }
-    75% { transform: translate(10px, -10px); }
-    100% { transform: translate(0, 0); }
+.hero-actions {
+    animation: fadeInUp 0.6s ease 0.6s both;
 }
-
-@keyframes heroGlow {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.1); }
-}
-
-/* ================================
-   Preloader Animations
-================================ */
-
-@keyframes loaderPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(8, 145, 178, 0.3); }
-    50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(8, 145, 178, 0.6); }
-}
-
-@keyframes loaderText {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-}
-
-/* ================================
-   Shimmer Effect
-================================ */
-
-@keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 200%; }
-}
-
-/* ================================
-   Bounce / Bob
-================================ */
-
-@keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-@keyframes bobRotate {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-5px) rotate(-5deg); }
-    75% { transform: translateY(-5px) rotate(5deg); }
-}
-
-/* ================================
-   Reveal Animation Classes
-================================ */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reveal:nth-child(1) { transition-delay: 0.1s; }
-.reveal:nth-child(2) { transition-delay: 0.2s; }
-.reveal:nth-child(3) { transition-delay: 0.3s; }
-.reveal:nth-child(4) { transition-delay: 0.4s; }
-.reveal:nth-child(5) { transition-delay: 0.5s; }
-.reveal:nth-child(6) { transition-delay: 0.6s; }
-
-/* ================================
-   Skill Bar Animation
-================================ */
-
-@keyframes fillBar {
-    from { width: 0; }
-}
-
-.skill-bar.animate {
-    animation: fillBar 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* ================================
-   Project Card Animations
-================================ */
-
-@keyframes cardFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-
-/* ================================
-   Contact Form Animation
-================================ */
-
-@keyframes formSlideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.form-group {
-    animation: formSlideUp 0.5s ease forwards;
-    opacity: 0;
-}
-
-.form-group:nth-child(1) { animation-delay: 0.1s; }
-.form-group:nth-child(2) { animation-delay: 0.2s; }
-.form-group:nth-child(3) { animation-delay: 0.3s; }
-.form-group:nth-child(4) { animation-delay: 0.4s; }
-
-/* ================================
-   Back to Top Animation
-================================ */
-
-@keyframes backToTopBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-.back-to-top.visible:hover {
-    animation: backToTopBounce 0.6s ease infinite;
-}
-
-/* ================================
-   Staggered Timeline Animation
-================================ */
-
-.timeline-item:nth-child(1) { transition-delay: 0.1s; }
-.timeline-item:nth-child(2) { transition-delay: 0.3s; }
-.timeline-item:nth-child(3) { transition-delay: 0.5s; }
-
-/* ================================
-   Skill Icon Hover Animation
-================================ */
-
-.skill-card:hover .skill-icon {
-    animation: bobRotate 0.6s ease;
-}
-
-/* ================================
-   Section Transition
-================================ */
-
-@keyframes sectionReveal {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================================
-   Tag Pulsing
-================================ */
-
-@keyframes tagPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(8, 145, 178, 0.3); }
-    50% { box-shadow: 0 0 0 6px rgba(8, 145, 178, 0); }
-}
-
-.tag:hover {
-    animation: tagPulse 1s infinite;
-}
-
-/* ================================
-   Gradient Border Animation
-================================ */
-
-@keyframes gradientBorder {
-    0% { border-color: var(--primary); }
-    33% { border-color: var(--accent); }
-    66% { border-color: var(--secondary); }
-    100% { border-color: var(--primary); }
-}
-
-/* ================================
-   Success Checkmark Animation
-================================ */
-
-@keyframes checkmarkDraw {
-    0% { stroke-dashoffset: 50; }
-    100% { stroke-dashoffset: 0; }
-}
-
-.form-success svg polyline {
-    stroke-dasharray: 50;
-    animation: checkmarkDraw 0.6s ease forwards;
-}
-
-/* ================================
-   Typewriter Base
-================================ */
-
-.hero-title-typing::after {
-    content: '';
-    animation: blink 0.7s step-end infinite;
-}
-
-/* ================================
-   Smooth Scroll Snap
-================================ */
-
-@media (min-width: 768px) {
-    html { scroll-snap-type: y proximity; }
-    .section { scroll-snap-align: start; }
-}
-
-/* ================================
-   Reduced Motion
-================================ */
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
 
-    .reveal,
-    .reveal-left,
-    .reveal-right {
+    .fade-in,
+    .fade-in-left,
+    .fade-in-right {
         opacity: 1;
         transform: none;
     }
-
-    html { scroll-behavior: auto; }
 }
