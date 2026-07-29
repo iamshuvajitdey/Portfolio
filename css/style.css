@@ -122,7 +122,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 200;
     padding: 16px 0;
     transition: var(--transition);
 }
@@ -168,11 +168,16 @@ a {
 .nav-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 4px;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    z-index: 101;
 }
 
 .nav-toggle span {
@@ -180,8 +185,21 @@ a {
     width: 22px;
     height: 2px;
     background: var(--text-primary);
-    transition: var(--transition);
+    transition: all 0.25s ease;
     border-radius: 1px;
+    transform-origin: center;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Hero */
@@ -780,23 +798,28 @@ a {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .nav-menu {
         display: none;
-        position: absolute;
-        top: 60px;
-        left: 24px;
-        right: 24px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 17, 23, 0.98);
         flex-direction: column;
-        padding: 16px;
-        gap: 4px;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        gap: 8px;
+        z-index: 100;
+        opacity: 0;
+        transition: opacity 0.25s ease;
     }
 
     .nav-menu.active {
         display: flex;
+        opacity: 1;
     }
 
     .nav-toggle {
@@ -804,8 +827,8 @@ a {
     }
 
     .nav-link {
-        display: block;
-        padding: 10px 12px;
+        font-size: 1.1rem;
+        padding: 14px 24px;
         border-radius: var(--radius);
     }
 
@@ -817,6 +840,11 @@ a {
         padding: 56px 0;
     }
 
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 36px;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -826,7 +854,7 @@ a {
     }
 
     .cert-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .contact-grid {
@@ -842,13 +870,79 @@ a {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    .stat-value {
+        font-size: 1.6rem;
+    }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 540px) {
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+        padding: 16px 8px;
+    }
+
+    .stat-value {
+        font-size: 1.4rem;
+    }
+
+    .timeline-item {
+        gap: 14px;
+    }
+
+    .timeline-head h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-card > p {
+        font-size: 0.85rem;
+    }
+
+    .project-body {
+        padding: 18px;
+    }
+
+    .project-body h3 {
+        font-size: 0.95rem;
+    }
+
+    .project-body p {
+        font-size: 0.83rem;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cert-card {
+        padding: 18px;
+    }
+
+    .cert-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .container {
+        padding: 0 18px;
+    }
+}
+
+@media (max-width: 400px) {
     .about-stats {
         grid-template-columns: 1fr;
     }
@@ -857,8 +951,52 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 28px;
+    }
+
+    .hero-name {
+        font-size: 1.8rem;
+    }
+
+    .hero-title {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
     .timeline-head {
         flex-direction: column;
+        gap: 2px;
+    }
+
+    .edu-item {
+        flex-direction: column;
         gap: 4px;
+        padding: 16px 0;
+    }
+
+    .edu-year {
+        width: auto;
+    }
+
+    .contact-form {
+        padding: 16px;
     }
 }

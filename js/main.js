@@ -8,23 +8,28 @@ const backToTop = document.getElementById('back-to-top');
 
 let countersFired = false;
 
+function toggleMobileNav(open) {
+    navToggle.classList.toggle('active', open);
+    navMenu.classList.toggle('active', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+}
+
 navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    toggleMobileNav(!navMenu.classList.contains('active'));
 });
 
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
+    link.addEventListener('click', () => toggleMobileNav(false));
 });
 
 document.addEventListener('click', (e) => {
     if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+        toggleMobileNav(false);
     }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') toggleMobileNav(false);
 });
 
 function handleScroll() {
